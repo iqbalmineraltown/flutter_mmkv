@@ -29,8 +29,8 @@ class _MyAppState extends State<MyApp> {
     String mystring;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      rootDir = await FlutterMmkv.getRootDir();
-      mystring = await FlutterMmkv.decodeString(_keyString);
+      // rootDir = await FlutterMmkv.getRootDir();
+      // mystring = await FlutterMmkv.decodeString(_keyString);
     } on PlatformException {
       rootDir = 'Failed to get';
     }

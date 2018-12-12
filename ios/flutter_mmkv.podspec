@@ -15,7 +15,14 @@ A  Flutter plugin to use MMKV
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
+  s.dependency 'MMKV'
   
   s.ios.deployment_target = '8.0'
+
+  s.preserve_paths = 'flutter_mmkv.framework'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework flutter_mmkv' }
+  s.vendored_frameworks = 'flutter_mmkv.framework'
+
+  s.static_framework = true
 end
 

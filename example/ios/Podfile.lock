@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_mmkv (0.0.1):
+    - Flutter
+    - MMKV
+  - MMKV (1.0.14)
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_mmkv (from `.symlinks/plugins/flutter_mmkv/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MMKV
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  flutter_mmkv:
+    :path: ".symlinks/plugins/flutter_mmkv/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  flutter_mmkv: 6f0ef2ee44abf11a0a7dc7600147993cbc76d705
+  MMKV: 0941e76758d765a16539ca5e2cdd66515358f41c
+
+PODFILE CHECKSUM: d231b65d6bea6d24555f84ca7901720538b5791f
+
+COCOAPODS: 1.5.3
