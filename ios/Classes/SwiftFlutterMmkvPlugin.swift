@@ -28,34 +28,32 @@ public class SwiftFlutterMmkvPlugin: NSObject, FlutterPlugin {
                 fatalError("unable to parse arguments")
             }
             let key = args["key"]!
-            let aString =  args["aString"]!
+            let aString = args["aString"]!
             result(mmkv.set(aString, forKey: key))
             break
         case "decodeString":
             guard let args = call.arguments as? [String:String] else {
                 fatalError("unable to parse arguments")
             }
-            let key = args["key"]!;
-            result(mmkv.object(of: NSString.self, forKey: key));
+            let key = args["key"]!
+            result(mmkv.object(of: NSString.self, forKey: key))
+            break
             break
         case "containsKey":
             guard let args = call.arguments as? [String:String] else {
                 fatalError("unable to parse arguments")
             }
-            let key = args["key"]!;
-            print("Check cache with key: \(key)")
+            let key = args["key"]!
             result(mmkv.contains(key: key))
             break
         case "removeValueForKey":
             guard let args = call.arguments as? [String:String] else {
                 fatalError("unable to parse arguments")
             }
-            let key = args["key"]!;
-            print("Removing cache with key: \(key)")
-            mmkv.removeValue(forKey: key);
+            let key = args["key"]!
+            mmkv.removeValue(forKey: key)
             break
         case "removeAll":
-            print("Removing all cache!")
             mmkv.clearAll()
             break
         default:

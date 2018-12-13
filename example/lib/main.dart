@@ -33,6 +33,9 @@ class _MyAppState extends State<MyApp> {
     try {
       rootDir = await FlutterMmkv.getRootDir();
       mystring = await FlutterMmkv.decodeString(_keyString1);
+      await FlutterMmkv.encodeBool("bool", true);
+      // bool a = await FlutterMmkv.decodeBool("bool");
+      // print(a.toString());
     } on PlatformException {
       rootDir = 'Failed to get';
     }
@@ -128,7 +131,7 @@ class _MyAppState extends State<MyApp> {
                           });
                         },
                         child: Text(
-                          'Remove2',
+                          'Remove1',
                           style: TextStyle(
                             color: Colors.white,
                           ),
