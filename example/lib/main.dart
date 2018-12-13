@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
     try {
       rootDir = await FlutterMmkv.getRootDir();
       mystring = await FlutterMmkv.decodeString(_keyString1);
-      await FlutterMmkv.encodeBool("bool", true);
+      // await FlutterMmkv.encodeBool("bool", true);
       // bool a = await FlutterMmkv.decodeBool("bool");
       // print(a.toString());
     } on PlatformException {
