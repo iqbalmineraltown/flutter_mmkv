@@ -4,11 +4,11 @@ import MMKV
     
 public class SwiftFlutterMmkvPlugin: NSObject, FlutterPlugin {
     private var channel:FlutterMethodChannel;
-    private var kv:MMKV;
+    private var mmkv:MMKV;
     
     init(channel:FlutterMethodChannel) {
         self.channel = channel
-        kv = MMKV.default()
+        mmkv = MMKV.default()
     }
     
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -18,22 +18,46 @@ public class SwiftFlutterMmkvPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-//    guard let args = call.arguments as? [String:String] else {
-//        fatalError("unable to parse arguments")
-//    }
     switch call.method {
         case "getRootDir":
-            result("adadsdas")
+            // TODO do nothing?
+            result("unable to get root dir on iOS?")
             break
-//        case "encodeString":
-//            let key = args["key"]!
-//            let aString =  args["aString"]!
-//            kv.setValue(aString, forKey: key)
-//            break
-//        case "decodeString":
-//            let key = args["key"]!;
-//            result("asdad");
-//            break
+        case "encodeString":
+            guard let args = call.arguments as? [String:String] else {
+                fatalError("unable to parse arguments")
+            }
+            let key = args["key"]!
+            let aString =  args["aString"]!
+            result(mmkv.set(aString, forKey: key))
+            break
+        case "decodeString":
+            guard let args = call.arguments as? [String:String] else {
+                fatalError("unable to parse arguments")
+            }
+            let key = args["key"]!;
+            result(mmkv.object(of: NSString.self, forKey: key));
+            break
+        case "containsKey":
+            guard let args = call.arguments as? [String:String] else {
+                fatalError("unable to parse arguments")
+            }
+            let key = args["key"]!;
+            print("Check cache with key: \(key)")
+            result(mmkv.contains(key: key))
+            break
+        case "removeValueForKey":
+            guard let args = call.arguments as? [String:String] else {
+                fatalError("unable to parse arguments")
+            }
+            let key = args["key"]!;
+            print("Removing cache with key: \(key)")
+            mmkv.removeValue(forKey: key);
+            break
+        case "removeAll":
+            print("Removing all cache!")
+            mmkv.clearAll()
+            break
         default:
             result(FlutterMethodNotImplemented)
     }
