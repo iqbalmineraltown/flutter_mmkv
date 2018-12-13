@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -46,10 +48,16 @@ class _MyAppState extends State<MyApp> {
       double d = await FlutterMmkv.decodeDouble("double");
       print(d.toString());
 
-      // long is also int in dart ?
-      await FlutterMmkv.encodeLong("long", 1212121212);
-      int l = await FlutterMmkv.decodeLong("long");
-      print(l.toString());
+      // long is also int in dart ? failed on android
+      // await FlutterMmkv.encodeLong("long", 1212121212);
+      // int l = await FlutterMmkv.decodeLong("long");
+      // print(l.toString());
+
+      /// TODO handle bytes type on ios
+      // await FlutterMmkv.encodeUint8List(
+      //     "uint8", Uint8List.fromList(List<int>.from([i, l])));
+      // Uint8List ui8 = await FlutterMmkv.decodeUint8List("uint8");
+      // print(ui8.toString());
     } on PlatformException {
       rootDir = 'Failed to get';
     }

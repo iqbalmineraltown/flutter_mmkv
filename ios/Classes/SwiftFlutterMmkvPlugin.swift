@@ -78,16 +78,19 @@ public class SwiftFlutterMmkvPlugin: NSObject, FlutterPlugin {
             let key = args["key"]! as! String
             result(mmkv.object(of: NSString.self, forKey: key))
             break
-//        case "encodeUint8List":
-//            let key = args["key"]!
-//            let aUInt8 = args["aBytes"]! as! UInt8
-//            result(mmkv.set(aUInt8, forKey: key))
-//            break
-//        case "decodeUint8List":
+        case "encodeUint8List":
+            // TODO handle bytes type
+//            let args = call.arguments as! [String:Any]
 //            let key = args["key"]! as! String
-//            let retrievedValue = mmkv.object(of: NSData.self ,forKey: key) as? Data
-//            result(FlutterStandardTypedData(bytes: retrievedValue!))
-//            break
+//            let aUInt8 = args["aBytes"]! as! FlutterStandardTypedData
+//            result(mmkv.set(aUInt8, forKey: key))
+            break
+        case "decodeUint8List":
+//            let args = call.arguments as! [String:Any]
+//            let key = args["key"]! as! String
+//            let retrievedValue = mmkv.object(of: FlutterStandardTypedData.self ,forKey: key)
+//            result(retrievedValue)
+            break
         case "containsKey":
             let args = call.arguments as! [String:Any]
             let key = args["key"]! as! String

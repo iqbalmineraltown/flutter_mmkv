@@ -40,8 +40,8 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
       result.success(rootDir);
 
     } else if ("encodeBool".equals(call.method)) {
-      String key =  call.argument("key");
-      boolean aBool =  call.argument("aBool");
+      String key = call.argument("key");
+      boolean aBool = call.argument("aBool");
       result.success(kv.encode(key, aBool));
 
     } else if ("decodeBool".equals(call.method)) {
@@ -49,8 +49,8 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
       result.success(kv.decodeBool(key));
 
     } else if ("encodeInt".equals(call.method)) {
-      String key =  call.argument("key");
-      int aInt =  call.argument("aInt");
+      String key = call.argument("key");
+      int aInt = call.argument("aInt");
       result.success(kv.encode(key, aInt));
 
     } else if ("decodeInt".equals(call.method)) {
@@ -58,8 +58,8 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
       result.success(kv.decodeInt(key));
 
     } else if ("encodeLong".equals(call.method)) {
-      String key =  call.argument("key");
-      Long aLong =  call.argument("aLong");
+      String key = call.argument("key");
+      long aLong = call.argument("aLong");
       result.success(kv.encode(key, aLong));
 
     } else if ("decodeLong".equals(call.method)) {
@@ -67,8 +67,8 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
       result.success(kv.decodeLong(key));
 
     } else if ("encodeDouble".equals(call.method)) {
-      String key =  call.argument("key");
-      Double aDouble =  call.argument("aDouble");
+      String key = call.argument("key");
+      Double aDouble = call.argument("aDouble");
       result.success(kv.encode(key, aDouble));
 
     } else if ("decodeDouble".equals(call.method)) {
@@ -77,7 +77,7 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
 
     } else if ("encodeString".equals(call.method)) {
       String key = call.argument("key");
-      String  aString =  call.argument("aString");
+      String aString = call.argument("aString");
       result.success(kv.encode(key, aString));
 
     } else if ("decodeString".equals(call.method)) {
@@ -86,7 +86,7 @@ public class FlutterMmkvPlugin implements MethodCallHandler {
 
     } else if ("encodeUint8List".equals(call.method)) {
       String key = call.argument("key");
-      byte[] aBytes =  call.argument("aBytes");
+      byte[] aBytes = call.argument("aBytes");
       result.success(kv.encode(key, aBytes));
 
     } else if ("decodeUint8List".equals(call.method)) {
