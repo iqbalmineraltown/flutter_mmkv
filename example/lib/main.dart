@@ -33,9 +33,23 @@ class _MyAppState extends State<MyApp> {
     try {
       rootDir = await FlutterMmkv.getRootDir();
       mystring = await FlutterMmkv.decodeString(_keyString1);
+
       await FlutterMmkv.encodeBool("bool", true);
-      bool a = await FlutterMmkv.decodeBool("bool");
-      print(a.toString());
+      bool b = await FlutterMmkv.decodeBool("bool");
+      print(b.toString());
+
+      await FlutterMmkv.encodeInt("int", 121212);
+      int i = await FlutterMmkv.decodeInt("int");
+      print(i.toString());
+
+      await FlutterMmkv.encodeDouble("double", 1212.1212);
+      double d = await FlutterMmkv.decodeDouble("double");
+      print(d.toString());
+
+      // long is also int in dart ?
+      await FlutterMmkv.encodeLong("long", 1212121212);
+      int l = await FlutterMmkv.decodeLong("long");
+      print(l.toString());
     } on PlatformException {
       rootDir = 'Failed to get';
     }
