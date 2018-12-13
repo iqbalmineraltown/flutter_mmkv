@@ -13,9 +13,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _rootDir = 'Unknown';
-  String _mystring;
+  String _myString1;
+  String _myString2;
   final _myController = TextEditingController();
-  final String _keyString = "mystring";
+  final String _keyString1 = "string1";
+  final String _keyString2 = "string2";
 
   @override
   void initState() {
@@ -29,8 +31,8 @@ class _MyAppState extends State<MyApp> {
     String mystring;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      // rootDir = await FlutterMmkv.getRootDir();
-      // mystring = await FlutterMmkv.decodeString(_keyString);
+      rootDir = await FlutterMmkv.getRootDir();
+      mystring = await FlutterMmkv.decodeString(_keyString1);
     } on PlatformException {
       rootDir = 'Failed to get';
     }
@@ -42,7 +44,7 @@ class _MyAppState extends State<MyApp> {
 
     setState(() {
       _rootDir = rootDir;
-      _mystring = mystring;
+      _myString1 = mystring;
     });
   }
 
@@ -65,7 +67,8 @@ class _MyAppState extends State<MyApp> {
             Column(
               children: <Widget>[
                 Text('Root Directory : $_rootDir\n'),
-                Text('Decoded value key=$_keyString :$_mystring'),
+                Text('Decoded value key=$_keyString1 :$_myString1'),
+                Text('Decoded value key=$_keyString2 :$_myString2'),
                 TextField(
                   controller: _myController,
                 ),
@@ -76,10 +79,10 @@ class _MyAppState extends State<MyApp> {
                       RaisedButton(
                         onPressed: () {
                           FlutterMmkv.encodeString(
-                              _keyString, _myController.text.toString());
+                              _keyString1, _myController.text.toString());
                         },
                         child: Text(
-                          'Encode',
+                          'Encode1',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -87,14 +90,14 @@ class _MyAppState extends State<MyApp> {
                       ),
                       RaisedButton(
                         onPressed: () {
-                          FlutterMmkv.decodeString(_keyString).then((value) {
+                          FlutterMmkv.decodeString(_keyString1).then((value) {
                             this.setState(() {
-                              _mystring = value;
+                              _myString1 = value;
                             });
                           });
                         },
                         child: Text(
-                          'Decode',
+                          'Decode1',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -103,11 +106,11 @@ class _MyAppState extends State<MyApp> {
                       RaisedButton(
                         onPressed: () {
                           this.setState(() {
-                            _mystring = null;
+                            _myString1 = null;
                           });
                         },
                         child: Text(
-                          'Clear',
+                          'Clear1',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -115,16 +118,17 @@ class _MyAppState extends State<MyApp> {
                       ),
                       RaisedButton(
                         onPressed: () {
-                          FlutterMmkv.removeAll().then((value) {
-                            FlutterMmkv.decodeString(_keyString).then((value) {
+                          FlutterMmkv.removeValueForKey(_keyString1)
+                              .then((value) {
+                            FlutterMmkv.decodeString(_keyString1).then((value) {
                               this.setState(() {
-                                _mystring = value;
+                                _myString1 = value;
                               });
                             });
                           });
                         },
                         child: Text(
-                          'Remove',
+                          'Remove2',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -133,10 +137,100 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                 ),
-                Text("Encode: Store value to cache"),
-                Text("Decode: Decode value from cache"),
-                Text("Clear: Clear decoded value(not deleting cache)"),
-                Text("Remove: Delete cache"),
+                ButtonTheme.bar(
+                  child: ButtonBar(
+                    alignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RaisedButton(
+                        onPressed: () {
+                          FlutterMmkv.encodeString(
+                              _keyString2, _myController.text.toString());
+                        },
+                        child: Text(
+                          'Encode2',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          FlutterMmkv.decodeString(_keyString2).then((value) {
+                            this.setState(() {
+                              _myString2 = value;
+                            });
+                          });
+                        },
+                        child: Text(
+                          'Decode2',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          this.setState(() {
+                            _myString2 = null;
+                          });
+                        },
+                        child: Text(
+                          'Clear2',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          FlutterMmkv.removeValueForKey(_keyString2)
+                              .then((value) {
+                            FlutterMmkv.decodeString(_keyString2).then((value) {
+                              this.setState(() {
+                                _myString2 = value;
+                              });
+                            });
+                          });
+                        },
+                        child: Text(
+                          'Remove2',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                ButtonTheme.bar(
+                  child: RaisedButton(
+                    onPressed: () {
+                      FlutterMmkv.removeAll().then((value) {
+                        FlutterMmkv.decodeString(_keyString1).then((value) {
+                          this.setState(() {
+                            _myString1 = value;
+                          });
+                        });
+                        FlutterMmkv.decodeString(_keyString2).then((value) {
+                          this.setState(() {
+                            _myString2 = value;
+                          });
+                        });
+                      });
+                    },
+                    child: Text(
+                      'RemoveAll',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Text("Encode<N>: Store value to cache N"),
+                Text("Decode<N>: Decode value from cache N"),
+                Text("Clear<N>: Clear decoded value N (not deleting cache)"),
+                Text("Remove<N>: Delete cache N"),
+                Text("RemoveAll: Delete all cache"),
               ],
             )
           ],
