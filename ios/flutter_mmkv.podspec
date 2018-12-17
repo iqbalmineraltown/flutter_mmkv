@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_mmkv'
-  s.version          = '0.0.1'
+  s.version          = '1.1.1'
   s.summary          = 'A  Flutter plugin to use MMKV'
   s.description      = <<-DESC
 A  Flutter plugin to use MMKV
@@ -18,6 +18,7 @@ A  Flutter plugin to use MMKV
   s.dependency 'MMKV'
   
   s.ios.deployment_target = '8.0'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
   s.preserve_paths = 'flutter_mmkv.framework'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-framework flutter_mmkv' }
