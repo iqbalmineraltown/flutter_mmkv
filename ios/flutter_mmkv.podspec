@@ -14,8 +14,8 @@ A  Flutter plugin to use MMKV
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
-  s.dependency 'Flutter'
-  s.dependency 'MMKV'
+  s.dependency 'Flutter','~>1.0.0'
+  s.dependency 'MMKV','~>1.0.15'
   
   s.ios.deployment_target = '9.3'
   s.swift_version = '4.2'

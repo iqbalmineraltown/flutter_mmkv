@@ -1,8 +1,8 @@
 PODS:
   - Flutter (1.0.0)
   - flutter_mmkv (1.1.3):
-    - Flutter
-    - MMKV
+    - Flutter (~> 1.0.0)
+    - MMKV (~> 1.0.15)
   - MMKV (1.0.15)
 
 DEPENDENCIES:
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_mmkv: aaf6b24ed16ca6ddf82a14a3392fdbddf7df69ca
+  flutter_mmkv: 5da900505a7f7f1e6b913c45fff5a241bcd36d5e
   MMKV: 483b0633edc3be228cb3ce1f36e9ab9cd85ed6db
 
 PODFILE CHECKSUM: f9c217048a279dc8fe7b6b1b129b2bcd9209e04f
