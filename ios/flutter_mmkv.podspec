@@ -24,6 +24,5 @@ A  Flutter plugin to use MMKV
   s.xcconfig = { 'OTHER_LDFLAGS' => '-framework flutter_mmkv' }
   s.vendored_frameworks = 'flutter_mmkv.framework'
 
-  s.static_framework = true
 end
 
