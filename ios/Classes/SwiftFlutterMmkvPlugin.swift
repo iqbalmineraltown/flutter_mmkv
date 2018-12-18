@@ -76,7 +76,7 @@ public class SwiftFlutterMmkvPlugin: NSObject, FlutterPlugin {
         case "decodeString":
             let args = call.arguments as! [String:Any]
             let key = args["key"]! as! String
-            result(mmkv.object(of: NSString.self, forKey: key))
+            result(mmkv.string(forKey: key))
             break
         case "encodeUint8List":
             // TODO handle bytes type
