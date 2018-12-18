@@ -19,6 +19,7 @@ A  Flutter plugin to use MMKV
   
   s.ios.deployment_target = '8.0'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
+  s.swift_version = '4.0'
 
   s.preserve_paths = 'flutter_mmkv.framework'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-framework flutter_mmkv' }
