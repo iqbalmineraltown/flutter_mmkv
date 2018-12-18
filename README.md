@@ -38,5 +38,6 @@ removeAll |
 containsKey |
 
 
-## **#Sample App**
-http://bit.ly/flutter_mmkv
+## Build
+arm: `flutter build apk --flavor arm`
+arm64: `flutter build apk --target-platform=android-arm64 --flavor arm64`

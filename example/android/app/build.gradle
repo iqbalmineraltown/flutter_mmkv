@@ -32,7 +32,6 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.yasincidem.fluttermmkvexample"
         minSdkVersion 16
         targetSdkVersion 27
@@ -46,6 +45,22 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+        }
+    }
+
+    flavorDimensions "arch"
+    productFlavors {
+        arm { 
+            dimension "arch"
+            ndk {
+                abiFilters 'armeabi-v7a'
+            }
+        }
+        arm64 { 
+            dimension "arch"
+            ndk {
+                abiFilters 'arm64-v8a'
+            }
         }
     }
 }
