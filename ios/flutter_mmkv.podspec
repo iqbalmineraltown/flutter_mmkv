@@ -18,5 +18,5 @@ A  Flutter plugin to use MMKV
   s.dependency 'MMKV','~>1.0.15'
   
   s.ios.deployment_target = '9.3'
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
 end
