@@ -7,3 +7,9 @@ pubspec.lock
 
 build/
 .vscode
+android/.settings
+example/android/.settings
+example/android/app/.settings
+.project
+android/.classpath
+example/android/app/.classpath

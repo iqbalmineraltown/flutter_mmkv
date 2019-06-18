@@ -7,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.3.0'
     }
 }
 rootProject.allprojects {
@@ -18,11 +18,11 @@ rootProject.allprojects {
 }
 apply plugin: 'com.android.library'
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         disable 'InvalidPackage'
@@ -30,6 +30,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.tencent:mmkv:1.0.15'
-    // replace "1.0.10" with any available version
+    implementation 'com.tencent:mmkv:1.0.22'
+    // replace with any available version
 }

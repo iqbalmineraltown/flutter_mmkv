@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_mmkv'
-  s.version          = '1.1.3'
+  s.version          = '1.2.0'
   s.summary          = 'A  Flutter plugin to use MMKV'
   s.description      = <<-DESC
 A  Flutter plugin to use MMKV
@@ -14,9 +14,9 @@ A  Flutter plugin to use MMKV
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
-  s.dependency 'Flutter','~>1.0.0'
-  s.dependency 'MMKV','~>1.0.15'
+  s.dependency 'Flutter'
+  s.dependency 'MMKV'
   
-  s.ios.deployment_target = '9.3'
+  #s.ios.deployment_target = '9.3'
   s.swift_version = '4.2'
 end

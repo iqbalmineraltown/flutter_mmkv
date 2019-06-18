@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -87,7 +85,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('FlutterMMKV Plugin'),
         ),
-        body: Column(
+        body: ListView(
           children: [
             Column(
               children: <Widget>[
