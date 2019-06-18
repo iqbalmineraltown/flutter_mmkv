@@ -5,7 +5,6 @@ author: Muhammad Iqbal <iqbalmineraltown@gmail.com>
 homepage: https://github.com/iqbalmineraltown/flutter_mmkv
 
 environment:
-  flutter: ^1.5.4
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
